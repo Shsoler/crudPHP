@@ -18,22 +18,23 @@
 <body>
 
 
-	<h1>Cadastro de Medicos</h1>
+	<h1>Cadastro de Médicos</h1>
 
 	<form action="../controller/MedicoInsercaoController.php" method="post" accept-charset="utf-8">
-		<label>Nome: </label>
-		<input type="text" name="nome" value="" required>
-		<br>
-		<br>
-		<label>Telefone: </label>
-		<input type="text" name="tel" pattern="([0-9]){11}" title="Verfique se a quantidade de digitos é 11" required>
-		<br>
-		<br>
-		<label>Especialidade: </label>
-		<br>
-		<br>
-		<input type="text" name="especialidade" value="" required>
-
+		<table>
+			<tr>
+				<td><label>Nome: </label></td>
+				<td><input type="text" name="nome" value="" required></td>
+			</tr>
+			<tr>
+				<td><label>Telefone: </label></td>
+				<td><input type="text" name="tel" pattern="([0-9]){11}" title="Verfique se a quantidade de digitos é 11" required></td>
+			</tr>
+			<tr>
+				<td><label>Especialidade: </label></td>
+				<td><input type="text" name="especialidade" value="" required></td>
+			</tr>
+		</table>
 		<input type="submit" name="cadastrar" value="Cadastrar">
 	</form>
 	<br>

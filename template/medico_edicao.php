@@ -22,14 +22,27 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-	<h1>Editar Tipo</h1>
+	<h1>Editar Médico</h1>
 
 	<form action="../controller/MedicoEdicaoController.php" method="post" accept-charset="utf-8">
-		<input type="text" name="id" value="<?= $medico->getId(); ?>" required>
-		<input type="text" name="nome" value="<?= $medico->getNome(); ?>" required>
-		<input type="text" name="tel" value="<?= $medico->getTel(); ?>" required>
-		<input type="text" name="especialidade" value="<?= $medico->getEspecialidade(); ?>" required>
-		
+		<table>
+			<tr>
+				<td>ID:</td>
+				<td><input type="text" name="id" value="<?= $medico->getId(); ?>" required readonly="readonly"></td>
+			</tr>
+			<tr>	
+				<td>Nome:</td>
+				<td><input type="text" name="nome" value="<?= $medico->getNome(); ?>" required></td>
+			</tr>
+			<tr>
+				<td>Tel:</td>
+				<td><input type="text" name="tel" value="<?= $medico->getTel(); ?>" required pattern="([0-9]){10,11}" title="Verfique se a quantidade de digitos é entre 10 e 11" ></td>
+			</tr>
+			<tr>
+				<td>Espec:</td>	
+				<td><input type="text" name="especialidade" value="<?= $medico->getEspecialidade(); ?>" required></td>
+			</tr>
+			</table>
 		<input type="submit" name="cadastrar" value="Editar">
 	</form>
 </body>

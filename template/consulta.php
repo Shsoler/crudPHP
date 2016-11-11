@@ -29,34 +29,36 @@ $med;
 	<h1>Cadastro de Consultas</h1>
 
 	<form action="../controller/ConsultaInsercaoController.php" method="post" accept-charset="utf-8">
-		<label>Data: </label>
-		<input  type="datetime-local" name="datacon" required>
-		<br>
-		<br>
-		<label>Médico: </label>
-		<Select name="medico"  required>
-			<?php 
-			foreach ($medicos as $medico) {
-				echo "<option value= \"".$medico->getId()." \">".$medico->getNome() ."</option>";
-			}
-			?>
-		</Select>
-		<br>
-		<br>
-		<label>Paciente: </label>
-		<Select name="paciente"  required>
-			<?php 
-			foreach ($pacientes as $paciente) {
-				echo "<option value= \"".$paciente->getId()." \">".$paciente->getNome() ."</option>";
-			}
-			?>
-		</Select>
-
-		<input type="submit" name="cadastrar" value="Cadastrar">
+		<table>	
+			<tr>
+				<td><label>Data: </label></td>
+				<td><input  type="datetime-local" name="datacon" required></td>
+				<tr>
+				</tr>
+				<td><label>Médico: </label></td>
+				<td><Select name="medico"  required>
+					<?php 
+					foreach ($medicos as $medico) {
+						echo "<option value= \"".$medico->getId()." \">".$medico->getNome() ."</option>";
+					}
+					?>
+				</Select></td>
+			</tr>
+			<tr>
+				<td><label>Paciente: </label></td>
+				<td><Select name="paciente"  required>
+					<?php 
+					foreach ($pacientes as $paciente) {
+						echo "<option value= \"".$paciente->getId()." \">".$paciente->getNome() ."</option>";
+					}
+					?>
+				</Select></td>
+			</tr>
+			<tr>
+				<td><input type="submit" name="cadastrar" value="Cadastrar"></td>
+			</tr>
+		</table>
 	</form>
-	<br>
-	<br>
-	<br>
 	<table>
 		<thead>
 			<tr>

@@ -24,43 +24,52 @@ $consulta = $dao->selecionaConsultaPorId($idConsulta);
 	<title>Consultas</title>
 </head>
 <body>
-	<h1>Cadastro de Consultas</h1>
+	<h1>Edição de Consultas</h1>
 	<form action="../controller/ConsultaEdicaoController.php" method="post">
-		<label>ID: </label>
-		<input type="text" name="id" value="<?= $consulta->getId(); ?>" required>
-		<label>Data: </label>
-		<input type="datetime-local" name="datacon"  value="<?php 
-    		$value = strftime('%Y-%m-%dT%H:%M:%S', strtotime($consulta->getDatacon()));
-    		echo $value;
-     ?>">
-
-		<label>Medico: </label>
-		<Select name="medico"  required>
+		<table>
+			<tr>
+				<td><label>ID: </label></td>
+				<td><input type="text" name="id" value="<?= $consulta->getId(); ?>" required readonly="readonly"></td>
+			</tr><tr>
+			<td><label>Data: </label></td>
+			<td><input type="datetime-local" name="datacon"  value="<?php 
+			$value = strftime('%Y-%m-%dT%H:%M:%S', strtotime($consulta->getDatacon()));
+			echo $value;
+			?>"></td>
+		</tr>
+		<tr>
+		<td><label>Medico: </label></td>
+		<td><Select name="medico"  required>
 			<?php 
 			foreach ($medicos as $medico) {
 				if($medico->getId() == $consulta->getMedico()->getId()){
 					echo "<option value= \"".$medico->getId()." \" selected>".$medico->getNome() ."</option>";
 				}
 				else{
-				 echo "<option value= \"".$medico->getId()." \">".$medico->getNome() ."</option>";
+					echo "<option value= \"".$medico->getId()." \">".$medico->getNome() ."</option>";
 				}
 			}
 			?>
-		</Select>
-<label>Paciente: </label>
-		<Select name="paciente"  required>
-			<?php 
-			foreach ($pacientes as $paciente) {
-				if($paciente->getId() == $consulta->getPaciente()->getId()){
-					echo "<option value= \"".$paciente->getId()." \" selected>".$paciente->getNome() ."</option>";
-				}
-				else{
-				 echo "<option value= \"".$paciente->getId()." \">".$paciente->getNome() ."</option>";
-				}
+		</Select></td>
+	</tr>
+	<tr>
+	<td><label>Paciente: </label></td>
+	<td><Select name="paciente"  required>
+		<?php 
+		foreach ($pacientes as $paciente) {
+			if($paciente->getId() == $consulta->getPaciente()->getId()){
+				echo "<option value= \"".$paciente->getId()." \" selected>".$paciente->getNome() ."</option>";
 			}
-			?>
-		</Select>
-		<input type="submit" name="cadastrar" value="Editar">
-	</form>
+			else{
+				echo "<option value= \"".$paciente->getId()." \">".$paciente->getNome() ."</option>";
+			}
+		}
+		?>
+	</Select></td>
+</tr><tr>
+<td><input type="submit" name="cadastrar" value="Editar"></td>
+<tr>
+</table>
+</form>
 </body>
 </html>
