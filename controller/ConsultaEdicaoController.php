@@ -13,8 +13,8 @@
 
 	$consulta->setId($id);
 	$consulta->setDatacon($datacon);
-	$consulta->setMedico($medico);
-	$consulta->setPaciente($paciente);
+	$consulta->getMedico()->setId($medico);
+	$consulta->getPaciente()->setId($paciente);
 		
 
 	$dao = new ConsultaDAO();

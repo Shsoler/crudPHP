@@ -26,7 +26,7 @@
 		<br>
 		<br>
 		<label>Telefone: </label>
-		<input type="text" name="tel" value="" required>
+		<input type="text" name="tel" pattern="([0-9]){11}" title="Verfique se a quantidade de digitos é 11" required>
 		<br>
 		<br>
 		<label>Especialidade: </label>

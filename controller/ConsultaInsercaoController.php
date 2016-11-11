@@ -7,11 +7,9 @@
 	$paciente = filter_input(INPUT_POST, 'paciente', FILTER_SANITIZE_STRING);
 
 	$consulta = new Consulta();
-	$mysqldate = date( 'Y-m-d H:i:s', $datacon );
-	$consulta->setDatacon($mysqldate);
-	$consulta->setMedico($medico);
-	$consulta->setPaciente($paciente);	
-
+	$consulta->setDatacon($datacon);#setDatacon(date("dd/MM/yy HH:mm:ss",strtotime($datacon)));
+	$consulta->getMedico()->setId($medico);
+	$consulta->getPaciente()->setId($paciente);	
 	$dao = new ConsultaDAO();
 
 

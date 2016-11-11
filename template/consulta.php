@@ -30,7 +30,7 @@ $med;
 
 	<form action="../controller/ConsultaInsercaoController.php" method="post" accept-charset="utf-8">
 		<label>Data: </label>
-		<input type="datetime-local" name="datacon" required>
+		<input  type="datetime-local" name="datacon" required>
 		<br>
 		<br>
 		<label>Médico: </label>
@@ -71,14 +71,9 @@ $med;
 			<tr>
 				<td><?= $consulta->getId(); ?></td>
 				<td><?= $consulta->getDatacon(); ?></td>
-				<td><?php $med=$daoMedico->selecionaMedicoPorId($consulta->getMedico()); 
-					echo $med.getNome();
-				?></td>
-				
-				<td><?php $pac=$daoPaciente->selecionaPacientePorId($consulta->getPaciente()); 
-					echo $pac.getNome();
-				?></td>
-				<td><a href="../template/consulta_edicao.php?id=<?= $consulta->getId(); ?>">Editar</a></td>
+				<td><?= $consulta->getMedico()->getNome(); ?></td>
+				<td><?= $consulta->getPaciente()->getNome(); ?></td>
+				<td><a href="../template/consulta_edicao.php?idConsulta=<?= $consulta->getId(); ?>">Editar</a></td>
 				<td><a href="../controller/ConsultaExclusaoController.php?id=<?= $consulta->getId(); ?>">Excluir</a></td>
 			</tr>
 		<?php endforeach; ?>
